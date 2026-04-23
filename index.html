@@ -357,19 +357,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         </div>
       </div>
     </div>
-    <!-- ══════ TRIAGE CHAT ══════ -->
-<div class="screen" id="s-chat">
-  <div class="sbar"><span class="sbar-time">Chat</span></div>
-
-  <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;overflow-y:auto" id="chat-box">
-    <div class="bot-msg">Hi, I’m your AI assistant. Tell me your symptoms.</div>
-  </div>
-
-  <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
-    <input id="chat-input" placeholder="Type symptoms..." style="flex:1;padding:10px;border-radius:12px;border:1px solid var(--border)">
-    <button onclick="sendChat()" class="ai-btn" style="padding:10px 14px">Send</button>
-  </div>
-</div>
+   
     <div class="home-body">
       <div class="alert-banner">
         <span style="font-size:18px">⚠️</span>
@@ -405,6 +393,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         </button>
       </div>
     </div>
+     <!-- ══════ TRIAGE CHAT ══════ -->
+<div class="screen" id="s-chat">
+  <div class="sbar"><span class="sbar-time">Chat</span></div>
+
+  <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;overflow-y:auto" id="chat-box">
+    <div class="bot-msg">Hi, I’m your AI assistant. Tell me your symptoms.</div>
+  </div>
+
+  <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+    <input id="chat-input" placeholder="Type symptoms..." style="flex:1;padding:10px;border-radius:12px;border:1px solid var(--border)">
+    <button onclick="sendChat()" class="ai-btn" style="padding:10px 14px">Send</button>
+  </div>
+</div>
     <div class="bnav">
       <button class="bnav-item act" onclick="nav('s-home')"><div class="bnav-icon">🏠</div><span class="bnav-label">Home</span></button>
       <button class="bnav-item" onclick="nav('s-pain')"><div class="bnav-icon">💊</div><span class="bnav-label">Symptoms</span></button>
