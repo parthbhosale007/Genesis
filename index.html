@@ -325,6 +325,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 <div style="background:var(--bg);padding:20px;border-radius:28px;min-height:820px">
 <div class="phone-shell" id="app">
 
+       <!-- ══════ TRIAGE CHAT ══════ -->
+<div class="screen" id="s-chat">
+  <div class="sbar"><span class="sbar-time">Chat</span></div>
+
+  <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;overflow-y:auto" id="chat-box">
+    <div class="bot-msg">Hi, I’m your AI assistant. Tell me your symptoms.</div>
+  </div>
+
+  <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+    <input id="chat-input" placeholder="Type symptoms..." style="flex:1;padding:10px;border-radius:12px;border:1px solid var(--border)">
+    <button onclick="sendChat()" class="ai-btn" style="padding:10px 14px">Send</button>
+  </div>
+</div>
+
   <!-- ══════ HOME ══════ -->
   <div class="screen on" id="s-home">
     <div class="sbar">
@@ -391,21 +405,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
           <div class="ab-sub">Score: 84 / 100</div>
           <div class="ab-arrow">›</div>
         </button>
+        <button class="action-btn" onclick="nav('s-chat')">
+          <div class="ab-icon">💬</div>
+          <div class="ab-title">AI Chat</div>
+          <div class="ab-sub">Describe symptoms</div>
+      </button>
       </div>
     </div>
-     <!-- ══════ TRIAGE CHAT ══════ -->
-<div class="screen" id="s-chat">
-  <div class="sbar"><span class="sbar-time">Chat</span></div>
-
-  <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;overflow-y:auto" id="chat-box">
-    <div class="bot-msg">Hi, I’m your AI assistant. Tell me your symptoms.</div>
-  </div>
-
-  <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
-    <input id="chat-input" placeholder="Type symptoms..." style="flex:1;padding:10px;border-radius:12px;border:1px solid var(--border)">
-    <button onclick="sendChat()" class="ai-btn" style="padding:10px 14px">Send</button>
-  </div>
-</div>
     <div class="bnav">
       <button class="bnav-item act" onclick="nav('s-home')"><div class="bnav-icon">🏠</div><span class="bnav-label">Home</span></button>
       <button class="bnav-item" onclick="nav('s-pain')"><div class="bnav-icon">💊</div><span class="bnav-label">Symptoms</span></button>
