@@ -357,6 +357,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         </div>
       </div>
     </div>
+    <!-- ══════ TRIAGE CHAT ══════ -->
+<div class="screen" id="s-chat">
+  <div class="sbar"><span class="sbar-time">Chat</span></div>
+
+  <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;overflow-y:auto" id="chat-box">
+    <div class="bot-msg">Hi, I’m your AI assistant. Tell me your symptoms.</div>
+  </div>
+
+  <div style="display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)">
+    <input id="chat-input" placeholder="Type symptoms..." style="flex:1;padding:10px;border-radius:12px;border:1px solid var(--border)">
+    <button onclick="sendChat()" class="ai-btn" style="padding:10px 14px">Send</button>
+  </div>
+</div>
     <div class="home-body">
       <div class="alert-banner">
         <span style="font-size:18px">⚠️</span>
@@ -869,4 +882,53 @@ setInterval(function(){
   document.getElementById('live-temp').textContent=tmp;
   document.getElementById('vh-tmp').textContent=tmp;
 },3000);
+
+  function sendChat() {
+  const input = document.getElementById("chat-input");
+  const text = input.value.trim();
+  if (!text) return;
+
+  addMessage(text, "user");
+
+  // simple triage logic
+  let reply = "I understand. Stay calm and monitor your symptoms.";
+  let severity = "LOW";
+
+  if (text.toLowerCase().includes("chest")) {
+    reply = "Chest pain can be serious. Please contact a doctor immediately.";
+    severity = "HIGH";
+  } else if (text.toLowerCase().includes("fever")) {
+    reply = "You may have a fever. Drink water and rest.";
+    severity = "MEDIUM";
+  }
+
+  setTimeout(() => {
+    addMessage(reply + " (Severity: " + severity + ")", "bot");
+  }, 500);
+
+  input.value = "";
+}
+
+function addMessage(text, type) {
+  const box = document.getElementById("chat-box");
+  const div = document.createElement("div");
+
+  div.className = type === "user" ? "user-msg" : "bot-msg";
+  div.style.padding = "10px";
+  div.style.borderRadius = "12px";
+  div.style.maxWidth = "80%";
+  div.style.fontSize = "13px";
+
+  if (type === "user") {
+    div.style.background = "#1B6FEB";
+    div.style.color = "white";
+    div.style.alignSelf = "flex-end";
+  } else {
+    div.style.background = "#E2EAF4";
+  }
+
+  div.textContent = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
 </script>
